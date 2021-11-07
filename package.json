@@ -1,0 +1,78 @@
+{
+  "name": "skyberry",
+  "version": "1.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-community/netinfo": "^5.9.7",
+    "@react-native-firebase/app": "^13.0.1",
+    "@react-native-firebase/auth": "^13.0.1",
+    "@react-native-firebase/firestore": "^13.0.1",
+    "@react-navigation/native": "5.9",
+    "@react-navigation/stack": "5.9",
+    "axios": "^0.23.0",
+    "i18next": "^19.8.3",
+    "react": "17.0.2",
+    "react-i18next": "^11.7.3",
+    "react-native": "0.65.1",
+    "react-native-dash": "^0.0.11",
+    "react-native-flipper": "^0.115.0",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-reanimated": "^2.0.0-alpha.8",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.8.0",
+    "react-native-vector-icons": "^8.1.0",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
+    "redux-flipper": "^2.0.1",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
+    "rn-async-storage-flipper": "^0.0.10",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.65.0",
+    "@types/react-native-vector-icons": "^6.4.6",
+    "@types/react-redux": "^7.1.19",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/redux": "^3.6.0",
+    "@types/styled-components-react-native": "^5.1.1",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-styled-components": "^1.12.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "jest-styled-components": "^7.0.4",
+    "metro-react-native-babel-preset": "^0.66.0",
+    "react-native-codegen": "^0.0.7",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

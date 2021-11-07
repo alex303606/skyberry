@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "740533968529",
+    "firebase_url": "https://skyberry-6250a.firebaseio.com",
+    "project_id": "skyberry-6250a",
+    "storage_bucket": "skyberry-6250a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740533968529:android:a5c792d39d21cc5051a930",
+        "android_client_info": {
+          "package_name": "com.skyberry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740533968529-uv123rj1d6466jrg5k98c56r8nhgj2h7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skyberry",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "740533968529-c395encdvnos3f9ohvipquner0gnt40a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3gQmVU5FD3Z-vJ_-H55aqEEKksUdUJUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740533968529-c395encdvnos3f9ohvipquner0gnt40a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
