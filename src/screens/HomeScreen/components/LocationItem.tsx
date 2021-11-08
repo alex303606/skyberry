@@ -24,9 +24,9 @@ export const LocationItem: React.FC<Props> = ({location, onPress}) => {
     <Wrapper>
       <StyledPressable onPress={onPressHandler}>
         <IconWrapper>
-          <Icon name={icon} color={Colors.white} size={30} />
+          <Icon name={icon} color={Colors.accentColor} size={30} />
         </IconWrapper>
-        <Regular22 numberOfLines={1} color={Colors.white}>
+        <Regular22 numberOfLines={1} color={Colors.accentColor}>
           {t(`categories.${name}`)}
         </Regular22>
       </StyledPressable>
@@ -37,7 +37,7 @@ export const LocationItem: React.FC<Props> = ({location, onPress}) => {
 const StyledPressable = styled.Pressable.attrs(() => ({
   android_ripple: {
     borderless: false,
-    color: Colors.white,
+    color: Colors.fillColor,
   },
 }))({
   flexDirection: 'row',
@@ -51,7 +51,7 @@ export const Wrapper = styled.View({
   borderRadius: 50,
   overflow: 'hidden',
   borderWidth: 2,
-  borderColor: Colors.white,
+  borderColor: Colors.accentColor,
   width: '30%',
 });
 

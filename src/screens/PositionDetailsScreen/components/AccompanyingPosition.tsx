@@ -18,7 +18,7 @@ export const AccompanyingPosition: React.FC<Props> = ({
   return (
     <Block alignItems={'center'} marginHorizontal={20}>
       <StyledImage source={thumbnailURL ? {uri: thumbnailURL} : DefaultImage} />
-      <StyledChocolatesRegular20 color={Colors.white}>
+      <StyledChocolatesRegular20 color={Colors.secondaryColor}>
         {title}
       </StyledChocolatesRegular20>
     </Block>

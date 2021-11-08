@@ -20,7 +20,7 @@ const coloredText = styled(
     TextProps & ColoredTextProps & SpacingsProps & {lineHeight?: number}
   >,
 )(({color, textAlign, flexShrink, lineHeight, ...props}) => ({
-  color: color || Colors.black,
+  color: color || Colors.textColor,
   textAlign: (textAlign || 'left') as any,
   flexShrink,
   lineHeight: addPx(lineHeight),

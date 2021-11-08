@@ -48,8 +48,8 @@ export const Position: React.FC<Props> = ({item}) => {
         </Block>
         <Dashes color={Colors.accentColor} thickness={2} padding={12}>
           <PriceContainer backgroundColor={Colors.accentColor}>
-            <Regular48 color={Colors.white}>{price}</Regular48>
-            <Regular24 color={Colors.white}>СОМ</Regular24>
+            <Regular48 color={Colors.fillColor}>{price}</Regular48>
+            <Regular24 color={Colors.fillColor}>СОМ</Regular24>
           </PriceContainer>
         </Dashes>
       </Row>

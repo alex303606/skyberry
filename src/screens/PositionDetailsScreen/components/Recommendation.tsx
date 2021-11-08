@@ -24,8 +24,15 @@ export const Recommendation: React.FC<Props> = ({
   return (
     <Block paddingBottom={100}>
       <Row>
-        <Icon name={IconNames.recommended} size={45} color={Colors.white} />
-        <BoldUppercase32 color={Colors.white} numberOfLines={1} marginLeft={20}>
+        <Icon
+          name={IconNames.recommended}
+          size={45}
+          color={Colors.accentColor}
+        />
+        <BoldUppercase32
+          color={Colors.titleColor}
+          numberOfLines={1}
+          marginLeft={20}>
           {recommendationTitle}
         </BoldUppercase32>
       </Row>
@@ -36,12 +43,12 @@ export const Recommendation: React.FC<Props> = ({
         <Block paddingHorizontal={20} flex={1}>
           <BoldUppercase32
             numberOfLines={1}
-            color={Colors.white}
+            color={Colors.titleColor}
             marginBottom={10}>
             {title}
           </BoldUppercase32>
           <Row>
-            <Polls20 color={Colors.white}>{description}</Polls20>
+            <Polls20 color={Colors.textColor}>{description}</Polls20>
           </Row>
         </Block>
       </Row>
@@ -50,12 +57,14 @@ export const Recommendation: React.FC<Props> = ({
           borderColor={Colors.accentColor}
           backgroundColor={Colors.accentColor}>
           <StyledPressable onPress={goTo}>
-            <RegularLowercase20 color={Colors.red}>Перейти</RegularLowercase20>
+            <RegularLowercase20 color={Colors.fillColor}>
+              Перейти
+            </RegularLowercase20>
           </StyledPressable>
         </Wrapper>
         <Wrapper borderColor={Colors.accentColor}>
           <StyledPressable onPress={goTo}>
-            <RegularLowercase20 color={Colors.white}>
+            <RegularLowercase20 color={Colors.accentColor}>
               Посмотреть все
             </RegularLowercase20>
           </StyledPressable>
@@ -68,7 +77,7 @@ export const Recommendation: React.FC<Props> = ({
 const StyledPressable = styled.Pressable.attrs(() => ({
   android_ripple: {
     borderless: false,
-    color: Colors.white,
+    color: Colors.fillColor,
   },
 }))(() => ({
   paddingVertical: 10,

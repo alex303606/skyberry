@@ -4,7 +4,7 @@ import React from 'react';
 import {AppRegistry, View, StyleSheet, ActivityIndicator} from 'react-native';
 import './src/utils/flipper';
 import axios from 'axios';
-class RootComponent extends React.Component {
+export class RootComponent extends React.Component {
   state = {
     mainComponent: null,
     onDestroy: null,

@@ -344,17 +344,17 @@ export const SELECTED_CATEGORY_POSITIONS = [
 export const TAGS = [
   {
     id: 1,
-    backgroundColor: Colors.black,
+    backgroundColor: Colors.secondaryColor,
     label: 'Острое',
   },
   {
     id: 2,
-    backgroundColor: Colors.black,
+    backgroundColor: Colors.overlayColor,
     label: 'Вегетарианское',
   },
   {
     id: 3,
-    backgroundColor: Colors.black,
+    backgroundColor: Colors.textColor,
     label: 'Холодное',
   },
 ];

@@ -42,9 +42,7 @@ const getMainComponent = (deps: PresentationDependencies) => {
       <DependenciesContext.Provider
         value={UIDependenciesServiceLocator.init(deps)}>
         <Provider store={store}>
-          <PersistGate
-            loading={<Loader color={Colors.white} />}
-            persistor={persistor}>
+          <PersistGate loading={<Loader />} persistor={persistor}>
             <SafeAreaProvider>
               <NavigationContainer
                 ref={navigationService.navigationRef}
@@ -55,7 +53,7 @@ const getMainComponent = (deps: PresentationDependencies) => {
                 <StatusBar
                   hidden
                   barStyle={'dark-content'}
-                  backgroundColor={Colors.white}
+                  backgroundColor={Colors.fillColor}
                 />
                 <ConnectionHandler />
                 <Root />

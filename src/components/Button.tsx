@@ -22,9 +22,11 @@ export const Button: React.FC<Props> = ({title, onPress, iconName}) => {
         padding={18}
         marginVertical={20}>
         <IconContainer>
-          <Icon color={Colors.white} size={30} name={iconName} />
+          <Icon color={Colors.fillColor} size={30} name={iconName} />
         </IconContainer>
-        <RegularLowerCase22 color={Colors.white}>{title}</RegularLowerCase22>
+        <RegularLowerCase22 color={Colors.fillColor}>
+          {title}
+        </RegularLowerCase22>
       </Container>
     </TouchableOpacity>
   );

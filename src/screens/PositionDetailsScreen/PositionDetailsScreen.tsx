@@ -49,22 +49,22 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
           <ScrollView>
             <ChocolatesUppercase72
               marginTop={100}
-              color={Colors.white}
+              color={Colors.titleColor}
               numberOfLines={1}>
               Лагман
             </ChocolatesUppercase72>
             <BoldCapitalize20
               marginVertical={7}
-              color={Colors.white}
+              color={Colors.textColor}
               numberOfLines={1}>
               Вес: 450 Гр.
             </BoldCapitalize20>
-            <BoldCapitalize20 color={Colors.white} marginVertical={7}>
+            <BoldCapitalize20 color={Colors.textColor} marginVertical={7}>
               Говяжья вырезка, Репчатый лук, Редька, Помидор, Вода, Чеснок,
               Растительное масло, Соль, Красный жгучий перец, Свежая зелень
             </BoldCapitalize20>
             <Polls24
-              color={Colors.white}
+              color={Colors.textColor}
               marginVertical={20}
               paddingRight={'20%'}>
               Легенда о появлении лагмана дошла до нас из Древнего Китая. На
@@ -80,7 +80,7 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
             <Row marginVertical={20}>
               <RegularUpperCase72
                 marginRight={20}
-                color={Colors.red}
+                color={Colors.secondaryColor}
                 numberOfLines={1}>
                 Цена: 200 сом
               </RegularUpperCase72>

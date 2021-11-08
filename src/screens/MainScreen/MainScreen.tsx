@@ -21,7 +21,7 @@ export const MainScreen: React.FC<MainScreenProps> = () => {
     <Background image={APP_BACKGROUND_IMAGE} showOverlay={false}>
       <Block flex={1} alignItems={'flex-end'} justifyContent={'flex-end'}>
         <StyledPressable onPress={handleNavigateToMenu}>
-          <Regular30 color={Colors.white}>Перейти в меню</Regular30>
+          <Regular30 color={Colors.fillColor}>Перейти в меню</Regular30>
         </StyledPressable>
       </Block>
     </Background>
@@ -31,13 +31,13 @@ export const MainScreen: React.FC<MainScreenProps> = () => {
 const StyledPressable = styled.Pressable.attrs(() => ({
   android_ripple: {
     borderless: false,
-    color: Colors.white,
+    color: Colors.fillColor,
   },
 }))({
   paddingVertical: 10,
   paddingHorizontal: 20,
   backgroundColor: 'rgba(0,0,0, 0.5)',
   borderWidth: 2,
-  borderColor: Colors.white,
+  borderColor: Colors.fillColor,
   margin: 30,
 });

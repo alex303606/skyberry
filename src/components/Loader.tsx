@@ -9,8 +9,8 @@ type Props = {
 };
 
 export const Loader: React.FC<Props> = ({
-  background = Colors.white,
-  color = Colors.red,
+  background = Colors.fillColor,
+  color = Colors.secondaryColor,
 }) => (
   <Block
     flex={1}

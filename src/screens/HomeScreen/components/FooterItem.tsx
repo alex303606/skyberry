@@ -16,9 +16,12 @@ export const FooterItem: React.FC<Props> = ({option}) => {
   return (
     <Container alignItems={'center'}>
       <Block marginBottom={5}>
-        <Icon color={Colors.white} size={30} name={icon} />
+        <Icon color={Colors.accentColor} size={30} name={icon} />
       </Block>
-      <Regular14 numberOfLines={1} marginTop={5} style={{color: Colors.red}}>
+      <Regular14
+        numberOfLines={1}
+        marginTop={5}
+        style={{color: Colors.secondaryColor}}>
         {t(`footer.${title}`, {value})}
       </Regular14>
     </Container>

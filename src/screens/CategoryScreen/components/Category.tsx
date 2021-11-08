@@ -38,12 +38,12 @@ export const Category: React.FC<Props> = ({item, onSelect}) => {
             <BoldUppercase55
               numberOfLines={1}
               textAlign={'left'}
-              color={Colors.white}>
+              color={Colors.titleColor}>
               {title}
             </BoldUppercase55>
           )}
           {!!description && (
-            <Polls20 color={Colors.red} marginVertical={20}>
+            <Polls20 color={Colors.textColor} marginVertical={20}>
               {description}
             </Polls20>
           )}

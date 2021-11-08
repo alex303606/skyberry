@@ -44,5 +44,5 @@ const Photo = styled(Block)<{
 }>(({active}) => ({
   borderBottomWidth: active ? 2 : 0,
   paddingBottom: active ? 10 : 0,
-  borderColor: active ? Colors.accentColor : Colors.red,
+  borderColor: Colors.accentColor,
 }));

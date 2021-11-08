@@ -3,7 +3,6 @@ import {EScreens, RootStackParamList} from '@interfaces';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useLoading} from '@hooks';
 import {Header, Loader} from '@components';
-import {Colors} from '@config';
 import {
   HomeScreen,
   MainScreen,
@@ -25,7 +24,7 @@ export const Root: React.FC<Props> = () => {
     dispatch(fetchMenu());
   }, [dispatch]);
   if (loading) {
-    return <Loader color={Colors.white} />;
+    return <Loader />;
   }
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
+import {Colors} from '@config';
 
 type Props = {
   children: React.ReactNode;
@@ -33,5 +34,5 @@ export const StyledImageBackground = styled.ImageBackground({
 
 export const Overlay = styled.View({
   ...StyleSheet.absoluteFillObject,
-  backgroundColor: 'rgba(16, 14, 14, 0.3)',
+  backgroundColor: Colors.overlayColor,
 });

@@ -15,7 +15,7 @@ const NoConnectionText = styled(Typography.Regular18)`
   line-height: 20px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: ${Colors.white};
+  color: ${Colors.fillColor};
 `;
 
 export const NoConnection: React.FC<NoConnectionProps> = React.memo(
@@ -36,6 +36,6 @@ export const NoConnection: React.FC<NoConnectionProps> = React.memo(
 const StyledStatusBarNotification = styled(StatusBarNotification)<{
   elevation: number;
 }>(({elevation}) => ({
-  backgroundColor: Colors.red,
+  backgroundColor: Colors.secondaryColor,
   elevation: `${elevation}`,
 }));

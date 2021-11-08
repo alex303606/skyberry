@@ -24,7 +24,7 @@ export const Header: React.FC<Props> = ({scene, navigation}) => {
     <Row padding={15} alignItems={'center'} pointerEvents="box-none">
       <IconContainer backgroundColor={Colors.accentColor}>
         <StyledPressable hitSlop={16} onPress={goBack}>
-          <Icon name={IconNames.back} color={Colors.white} size={60} />
+          <Icon name={IconNames.back} color={Colors.fillColor} size={60} />
         </StyledPressable>
       </IconContainer>
       <Row justifyContent={'center'} flex={1} paddingHorizontal={'15%'}>
@@ -34,7 +34,7 @@ export const Header: React.FC<Props> = ({scene, navigation}) => {
       </Row>
       <IconContainer backgroundColor={Colors.accentColor}>
         <StyledPressable hitSlop={16} onPress={popToTop}>
-          <Icon name={IconNames.home} color={Colors.white} size={50} />
+          <Icon name={IconNames.home} color={Colors.fillColor} size={50} />
         </StyledPressable>
       </IconContainer>
     </Row>
@@ -44,7 +44,7 @@ export const Header: React.FC<Props> = ({scene, navigation}) => {
 const StyledPressable = styled.Pressable.attrs(() => ({
   android_ripple: {
     borderless: false,
-    color: Colors.white,
+    color: Colors.fillColor,
   },
 }))({
   padding: 5,

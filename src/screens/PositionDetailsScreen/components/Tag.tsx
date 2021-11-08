@@ -21,9 +21,9 @@ export const Tag: React.FC<Props> = ({tag}) => {
       paddingVertical={15}
       paddingHorizontal={50}
       margin={10}>
-      <RegularLowercase20 color={Colors.white}>{label}</RegularLowercase20>
+      <RegularLowercase20 color={Colors.fillColor}>{label}</RegularLowercase20>
       <IconWrapper marginLeft={20}>
-        <Icon name={IconNames.dish} size={30} color={Colors.white} />
+        <Icon name={IconNames.dish} size={30} color={Colors.fillColor} />
       </IconWrapper>
     </Wrapper>
   );
