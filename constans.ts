@@ -1,5 +1,4 @@
 import {IconNames} from '@components';
-import {Colors} from '@config';
 
 export const APP_BACKGROUND_IMAGE =
   'https://firebasestorage.googleapis.com/v0/b/skyberry-6250a.appspot.com/o/background.jpg?alt=media&token=a2a36a23-92e3-4b1e-ac27-18d22d4b3da1';
@@ -344,18 +343,23 @@ export const SELECTED_CATEGORY_POSITIONS = [
 export const TAGS = [
   {
     id: 1,
-    backgroundColor: Colors.secondaryColor,
+    backgroundColor: 'rgb(235, 50, 60)',
     label: 'Острое',
   },
   {
     id: 2,
-    backgroundColor: Colors.overlayColor,
+    backgroundColor: 'rgb(16, 203, 16)',
     label: 'Вегетарианское',
   },
   {
     id: 3,
-    backgroundColor: Colors.textColor,
-    label: 'Холодное',
+    backgroundColor: 'rgb(50, 197, 235)',
+    label: 'С аллергеном',
+  },
+  {
+    id: 4,
+    backgroundColor: 'rgb(255, 212, 42)',
+    label: 'Без глютена',
   },
 ];
 
