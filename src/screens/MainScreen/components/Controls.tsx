@@ -23,8 +23,8 @@ export const Controls: React.FC<Props> = ({set}) => {
 
 const StyledRow = styled(Row)({
   position: 'absolute',
-  left: 30,
-  top: 30,
+  left: 0,
+  bottom: 0,
 });
 
 const StyledPressable = styled.Pressable.attrs(() => ({
