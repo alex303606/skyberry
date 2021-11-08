@@ -9,11 +9,14 @@ import {
   TagsComponent,
 } from './components';
 import {IPosition, ITag, PositionsDetailsScreenProps} from '@interfaces';
-import {PHOTOS, SELECTED_CATEGORY_POSITIONS, TAGS} from '../../../constans';
+import {
+  APP_BACKGROUND_IMAGE,
+  PHOTOS,
+  SELECTED_CATEGORY_POSITIONS,
+  TAGS,
+} from '../../../constans';
 import {useSetScreenOptions} from '@hooks';
 
-const background: string =
-  'https://firebasestorage.googleapis.com/v0/b/skyberry-6250a.appspot.com/o/background.jpg?alt=media&token=a2a36a23-92e3-4b1e-ac27-18d22d4b3da1';
 const thumbnailURL: string =
   'https://firebasestorage.googleapis.com/v0/b/skyberry-6250a.appspot.com/o/categories%2Fb42tgELj8Zp9ldHNV8tv.png?alt=media&token=bef56186-1092-4ca7-aa61-10990fe01653';
 
@@ -37,7 +40,7 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
   );
 
   return (
-    <Background image={background} showOverlay={true}>
+    <Background image={APP_BACKGROUND_IMAGE} showOverlay={true}>
       <Row>
         <Block flex={3} paddingTop={100}>
           <PositionGallery thumbnailURL={thumbnailURL} photos={photos} />

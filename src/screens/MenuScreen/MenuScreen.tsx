@@ -4,12 +4,12 @@ import {FlatList} from 'react-native';
 import Dash from 'react-native-dash';
 import {Colors} from '@config';
 import {EScreens, ICategory, IPosition, MenuScreenProps} from '@interfaces';
-import {SELECTED_CATEGORY_POSITIONS} from '../../../constans';
+import {
+  APP_BACKGROUND_IMAGE,
+  SELECTED_CATEGORY_POSITIONS,
+} from '../../../constans';
 import {useNavigation} from '@react-navigation/native';
 import {useSetScreenOptions} from '@hooks';
-
-const image =
-  'https://api.interior.ru/media/images/DESIGN/Modnoe%20Mesto/Russki_restaurant/cover_RUSKI_interior_5.jpg';
 
 const keyExtractor = (item: any) => item.id;
 
@@ -59,7 +59,7 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
   const contentContainerStyle = useMemo(() => ({paddingTop: 100}), []);
 
   return (
-    <Background showOverlay={true} image={image}>
+    <Background showOverlay={true} image={APP_BACKGROUND_IMAGE}>
       <Row>
         <Block flex={6}>
           <FlatList

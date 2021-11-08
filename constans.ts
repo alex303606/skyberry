@@ -1,6 +1,9 @@
 import {IconNames} from '@components';
 import {Colors} from '@config';
 
+export const APP_BACKGROUND_IMAGE =
+  'https://firebasestorage.googleapis.com/v0/b/skyberry-6250a.appspot.com/o/background.jpg?alt=media&token=a2a36a23-92e3-4b1e-ac27-18d22d4b3da1';
+
 export const SOCIAL_NETWORKS = [
   {
     name: 'www.skyberry.kg',

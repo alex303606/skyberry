@@ -5,10 +5,8 @@ import {Colors} from '@config';
 import {useNavigation} from '@react-navigation/native';
 import {EScreens, MainScreenProps} from '@interfaces';
 import {useHardwareBackPress} from '@hooks';
+import {APP_BACKGROUND_IMAGE} from '../../../constans';
 const {Regular30} = Typography;
-
-const background =
-  'https://cdnn21.img.ria.ru/images/07e4/07/0d/1574271676_0:79:1500:923_1920x0_80_0_0_9cd263455c663713ee89b689fad9201f.jpg.webp';
 
 export const MainScreen: React.FC<MainScreenProps> = () => {
   const {navigate} = useNavigation();
@@ -20,7 +18,7 @@ export const MainScreen: React.FC<MainScreenProps> = () => {
   useHardwareBackPress(onHardwareBack);
 
   return (
-    <Background image={background} showOverlay={false}>
+    <Background image={APP_BACKGROUND_IMAGE} showOverlay={false}>
       <Block flex={1} alignItems={'flex-end'} justifyContent={'flex-end'}>
         <StyledPressable onPress={handleNavigateToMenu}>
           <Regular30 color={Colors.white}>Перейти в меню</Regular30>

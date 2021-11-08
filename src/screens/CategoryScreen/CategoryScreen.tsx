@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {CategoryScreenProps, EScreens, ICategory} from '@interfaces';
-import {CATEGORIES} from '../../../constans';
+import {APP_BACKGROUND_IMAGE, CATEGORIES} from '../../../constans';
 import {useSetScreenOptions} from '@hooks';
 import {useTranslation} from 'react-i18next';
 
@@ -20,9 +20,6 @@ const getItemLayout = (_: unknown, index: number) => ({
   length: height,
   offset: height * index,
 });
-
-const image =
-  'https://api.interior.ru/media/images/DESIGN/Modnoe%20Mesto/Russki_restaurant/cover_RUSKI_interior_5.jpg';
 
 const keyExtractor = (item: any) => item.id;
 
@@ -107,7 +104,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
   );
 
   return (
-    <Background showOverlay={true} image={image}>
+    <Background showOverlay={true} image={APP_BACKGROUND_IMAGE}>
       <Row flex={1}>
         <Block flex={6}>
           <FlatList

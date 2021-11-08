@@ -2,7 +2,13 @@ import React, {useCallback} from 'react';
 import {Block, Background} from '@components';
 import {LanguagePicker, SocialNetworks, Footer, Locations} from './components';
 import styled from 'styled-components/native';
-import {MENU, SOCIAL_NETWORKS, OPTIONS, LANGUAGES} from '../../../constans';
+import {
+  MENU,
+  SOCIAL_NETWORKS,
+  OPTIONS,
+  LANGUAGES,
+  APP_BACKGROUND_IMAGE,
+} from '../../../constans';
 import {useNavigation} from '@react-navigation/native';
 import {
   EScreens,
@@ -13,9 +19,6 @@ import {
   ISocialNetwork,
 } from '@interfaces';
 const logo = require('@assets/images/logo.png');
-
-const background =
-  'https://firebasestorage.googleapis.com/v0/b/skyberry-6250a.appspot.com/o/background.jpg?alt=media&token=a2a36a23-92e3-4b1e-ac27-18d22d4b3da1';
 
 export const HomeScreen: React.FC<HomeScreenProps> = () => {
   const {navigate} = useNavigation();
@@ -34,7 +37,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
   const locations: ILocation[] = MENU;
 
   return (
-    <Background image={background}>
+    <Background image={APP_BACKGROUND_IMAGE}>
       <Block flex={1} alignItems={'center'}>
         <SocialNetworks socialNetworks={socialNetworks} />
         <Block alignItems={'center'} justifyContent={'center'} flex={1}>
