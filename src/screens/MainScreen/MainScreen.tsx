@@ -16,14 +16,10 @@ export const MainScreen: React.FC<MainScreenProps> = () => {
     app: {promoImage, promoVideo},
   } = useConfig();
 
-  const [loadingVideo, setLoadingVideo] = useState<boolean>(false);
-  const [errorVideo, setErrorVideo] = useState<boolean>(false);
   const handleNavigateToMenu = useCallback(
     () => navigate(EScreens.HOME_SCREEN),
     [navigate],
   );
-  const handleOnErrorVideo = useCallback(() => setErrorVideo(true), []);
-  const handleOnLoadVideo = useCallback(() => setLoadingVideo(false), []);
 
   const [paused, setPaused] = useState(true);
 
@@ -39,14 +35,12 @@ export const MainScreen: React.FC<MainScreenProps> = () => {
     }, []),
   );
 
-  if (promoVideo?.length && !errorVideo) {
+  if (promoVideo?.length) {
     return (
       <Block flex={1}>
         <VideoPlayer
+          poster={promoImage || undefined}
           paused={paused}
-          loading={loadingVideo}
-          onErrorHandler={handleOnErrorVideo}
-          onLoadHandler={handleOnLoadVideo}
           videoURL={promoVideo}
         />
         <Block flex={1} alignItems={'flex-end'} justifyContent={'flex-end'}>
