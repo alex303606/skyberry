@@ -18,7 +18,7 @@ type Props = {
 };
 
 export const Category: React.FC<Props> = ({item, onSelect}) => {
-  const {description, thumbnailURL, title} = item;
+  const {description, image, title} = item;
   const onSelectHandler = useCallback(() => {
     onSelect(item);
   }, [item, onSelect]);
@@ -27,9 +27,7 @@ export const Category: React.FC<Props> = ({item, onSelect}) => {
     <Container justifyContent={'center'} alignItems={'flex-end'}>
       <Background>
         <Dashes color={Colors.accentColor} padding={200}>
-          <StyledImage
-            source={thumbnailURL ? {uri: thumbnailURL} : DefaultImage}
-          />
+          <StyledImage source={image ? {uri: image} : DefaultImage} />
         </Dashes>
       </Background>
       <Block marginRight={40}>

@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {CategoryScreenProps, EScreens, ICategory} from '@interfaces';
-import {APP_BACKGROUND_IMAGE, CATEGORIES} from '../../../constans';
-import {useSetScreenOptions} from '@hooks';
+import {CATEGORIES} from '../../../constans';
+import {useConfig, useSetScreenOptions} from '@hooks';
 import {useTranslation} from 'react-i18next';
 
 const {height} = Dimensions.get('screen');
@@ -35,6 +35,9 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
   const [navItemHeight, setNavItemHeight] = useState<number>(0);
   const [currentScrollPosition, setCurrentScrollPosition] = useState<number>(0);
   const [activeNavItem, setActiveNavItem] = useState<number>(0);
+  const {
+    app: {backgroundImage},
+  } = useConfig();
 
   useSetScreenOptions(
     {
@@ -104,7 +107,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
   );
 
   return (
-    <Background showOverlay={true} image={APP_BACKGROUND_IMAGE}>
+    <Background showOverlay={true} image={backgroundImage}>
       <Row flex={1}>
         <Block flex={6}>
           <FlatList

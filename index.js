@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-axios.defaults.baseURL = 'http://dostavka.skyberry.kg/app/';
+axios.defaults.baseURL = 'http://menu.skyberry.kg/app/';
 
 axios.interceptors.request.use(
   conf => {

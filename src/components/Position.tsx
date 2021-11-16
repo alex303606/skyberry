@@ -5,17 +5,17 @@ import {Button} from './Button';
 import {Colors} from '@config';
 import {Block, IconNames, Row, Typography} from '@components';
 import styled from 'styled-components/native';
-import {EScreens, IPosition} from '@interfaces';
+import {EScreens, IDish} from '@interfaces';
 import {useNavigation} from '@react-navigation/native';
 const {Regular48, Regular24, ChocolatesUppercase36, Polls18} = Typography;
 const DefaultImage = require('@assets/images/logo.png');
 
 type Props = {
-  item: IPosition;
+  item: IDish;
 };
 
 export const Position: React.FC<Props> = ({item}) => {
-  const {title, description, price, thumbnailURL} = item;
+  const {title, description, price, images} = item;
   const {navigate} = useNavigation();
 
   const navigateToPosition = useCallback(() => {
@@ -27,9 +27,7 @@ export const Position: React.FC<Props> = ({item}) => {
   return (
     <TouchableWithoutFeedback onPress={navigateToPosition}>
       <Row alignItems={'center'} paddingVertical={25} paddingLeft={40}>
-        <StyledImage
-          source={thumbnailURL ? {uri: thumbnailURL} : DefaultImage}
-        />
+        <StyledImage source={images[0] ? {uri: images[0]} : DefaultImage} />
         <Block flex={1} paddingHorizontal={40}>
           <ChocolatesUppercase36
             numberOfLines={1}

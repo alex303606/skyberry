@@ -2,22 +2,10 @@ import React, {useCallback} from 'react';
 import {Block, Background} from '@components';
 import {LanguagePicker, SocialNetworks, Footer, Locations} from './components';
 import styled from 'styled-components/native';
-import {
-  MENU,
-  SOCIAL_NETWORKS,
-  OPTIONS,
-  LANGUAGES,
-  APP_BACKGROUND_IMAGE,
-} from '../../../constans';
+import {MENU} from '../../../constans';
 import {useNavigation} from '@react-navigation/native';
-import {
-  EScreens,
-  HomeScreenProps,
-  ILanguage,
-  ILocation,
-  IOption,
-  ISocialNetwork,
-} from '@interfaces';
+import {EScreens, HomeScreenProps, ILocation} from '@interfaces';
+import {useConfig} from '@hooks';
 const logo = require('@assets/images/logo.png');
 
 export const HomeScreen: React.FC<HomeScreenProps> = () => {
@@ -31,13 +19,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
     [navigate],
   );
 
-  const socialNetworks: ISocialNetwork[] = SOCIAL_NETWORKS;
-  const languages: ILanguage[] = LANGUAGES;
-  const options: IOption[] = OPTIONS;
+  const {socialNetworks, app, options, languages} = useConfig();
   const locations: ILocation[] = MENU;
 
   return (
-    <Background image={APP_BACKGROUND_IMAGE}>
+    <Background image={app.backgroundImage}>
       <Block flex={1} alignItems={'center'}>
         <SocialNetworks socialNetworks={socialNetworks} />
         <Block alignItems={'center'} justifyContent={'center'} flex={1}>

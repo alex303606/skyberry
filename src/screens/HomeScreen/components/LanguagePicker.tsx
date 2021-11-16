@@ -21,7 +21,7 @@ export const LanguagePicker: React.FC<Props> = ({languages}) => {
   const renderLang = useCallback(
     (item: ILanguage) => (
       <LanguageButton
-        key={item.lang}
+        key={item.id}
         language={item.lang}
         onPress={changeLangHandler}
         flagURL={item.flagURL}

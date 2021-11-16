@@ -1,0 +1,102 @@
+{
+  "app": {
+    "promoVideo": "http://menu.skyberry.kg/video/1.mp4",
+    "promoImage": "http://menu.skyberry.kg/video/background.jpg",
+    "backgroundImage": "http://menu.skyberry.kg/video/background.jpg"
+  },
+  "socialNetworks": [
+    {
+      "id": 1,
+      "name": "www.skyberry.kg",
+      "icon": "website"
+    },
+    {
+      "id": 2,
+      "name": "skyberry@gmail.com",
+      "icon": "email"
+    },
+    {
+      "id": 3,
+      "name": "facebook.com/skyberry.kg",
+      "icon": "facebook"
+    },
+    {
+      "id": 4,
+      "name": "instagram.com/skyberry.kg/",
+      "icon": "instagram"
+    },
+    {
+      "id": 5,
+      "name": "+996 (225) 30 88 88",
+      "icon": "whatsapp"
+    },
+    {
+      "id": 6,
+      "name": "tiktok.com/@skyberry.kg",
+      "icon": "tiktok"
+    },
+    {
+      "id": 7,
+      "name": "tripadvisor.com/skyberry",
+      "icon": "tripadvisor"
+    }
+  ],
+  "options": [
+    {
+      "id": 1,
+      "icon": "location",
+      "title": "address",
+      "value": "Токтогула, 125/1"
+    },
+    {
+      "id": 2,
+      "icon": "clock",
+      "title": "workingHours",
+      "value": "08:00 - 00:00"
+    },
+    {
+      "id": 3,
+      "icon": "service",
+      "title": "service",
+      "value": "15%"
+    }
+  ],
+  "tags": [
+    {
+      "id": 76,
+      "backgroundColor": "#EB323CFF",
+      "icon": "spicy",
+      "label": "Острое"
+    },
+    {
+      "id": 77,
+      "backgroundColor": "#10CB10FF",
+      "icon": "vegetarian",
+      "label": "Вегетарианское"
+    },
+    {
+      "id": 78,
+      "backgroundColor": "#32C5EBFF",
+      "icon": "withAllergen",
+      "label": "С аллергеном"
+    },
+    {
+      "id": 79,
+      "backgroundColor": "#FFD42AFF",
+      "icon": "glutenFree",
+      "label": "Без глютена"
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "lang": "ru",
+      "flagURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/1920px-Flag_of_Russia.svg.png"
+    },
+    {
+      "id": 2,
+      "lang": "en",
+      "flagURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1920px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
+    }
+  ]
+}

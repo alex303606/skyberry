@@ -8,14 +8,9 @@ import {
   Recommendation,
   TagsComponent,
 } from './components';
-import {IPosition, ITag, PositionsDetailsScreenProps} from '@interfaces';
-import {
-  APP_BACKGROUND_IMAGE,
-  PHOTOS,
-  SELECTED_CATEGORY_POSITIONS,
-  TAGS,
-} from '../../../constans';
-import {useSetScreenOptions} from '@hooks';
+import {IDish, ITag, PositionsDetailsScreenProps} from '@interfaces';
+import {PHOTOS, SELECTED_CATEGORY_POSITIONS, TAGS} from '../../../constans';
+import {useConfig, useSetScreenOptions} from '@hooks';
 
 const thumbnailURL: string =
   'https://firebasestorage.googleapis.com/v0/b/skyberry-6250a.appspot.com/o/categories%2Fb42tgELj8Zp9ldHNV8tv.png?alt=media&token=bef56186-1092-4ca7-aa61-10990fe01653';
@@ -28,9 +23,13 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
     params: {position},
   },
 }) => {
-  const selectedCategoryPosition: IPosition[] = SELECTED_CATEGORY_POSITIONS;
+  const selectedCategoryPosition: IDish[] = SELECTED_CATEGORY_POSITIONS;
   const photos: string[] = PHOTOS;
   const tags: ITag[] = TAGS;
+
+  const {
+    app: {backgroundImage},
+  } = useConfig();
 
   useSetScreenOptions(
     {
@@ -40,7 +39,7 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
   );
 
   return (
-    <Background image={APP_BACKGROUND_IMAGE} showOverlay={true}>
+    <Background image={backgroundImage} showOverlay={true}>
       <Row>
         <Block flex={3} paddingTop={100}>
           <PositionGallery thumbnailURL={thumbnailURL} photos={photos} />

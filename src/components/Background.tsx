@@ -5,9 +5,11 @@ import {Colors} from '@config';
 
 type Props = {
   children: React.ReactNode;
-  image: string;
+  image: string | null;
   showOverlay?: boolean;
 };
+
+const DefaultImage = require('@assets/images/logo.png');
 
 export const Background: React.FC<Props> = ({
   children,
@@ -17,9 +19,13 @@ export const Background: React.FC<Props> = ({
   return (
     <StyledImageBackground
       blurRadius={4}
-      source={{
-        uri: image,
-      }}>
+      source={
+        image
+          ? {
+              uri: image,
+            }
+          : DefaultImage
+      }>
       {showOverlay && <Overlay />}
       {children}
     </StyledImageBackground>

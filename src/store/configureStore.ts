@@ -1,9 +1,9 @@
 import {applyMiddleware, combineReducers} from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import {exampleReducer} from './reducers/profile';
 import {createStore} from 'redux';
 import {persistStore, persistReducer} from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
+import {menuReducer, mainCategoryReducer, configReducer} from './reducers';
 
 const middlewares = [thunkMiddleware];
 
@@ -15,7 +15,9 @@ if (__DEV__) {
 const enhancers = applyMiddleware.apply({}, middlewares);
 
 const appReducer = combineReducers({
-  profile: exampleReducer,
+  menu: menuReducer,
+  mainCategory: mainCategoryReducer,
+  config: configReducer,
 });
 
 const persistConfig = {

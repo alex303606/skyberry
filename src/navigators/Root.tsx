@@ -11,7 +11,7 @@ import {
   PositionDetailsScreen,
 } from '@screens';
 import {useDispatch} from 'react-redux';
-import {fetchMenu, initMenu} from '@actions';
+import {initMenu, initConfig} from '@actions';
 const Stack = createStackNavigator<RootStackParamList>();
 
 type Props = {};
@@ -21,7 +21,7 @@ export const Root: React.FC<Props> = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(initMenu());
-    dispatch(fetchMenu());
+    dispatch(initConfig());
   }, [dispatch]);
   if (loading) {
     return <Loader />;

@@ -3,13 +3,10 @@ import {Background, Block, Row, Position, SideBar} from '@components';
 import {FlatList} from 'react-native';
 import Dash from 'react-native-dash';
 import {Colors} from '@config';
-import {EScreens, ICategory, IPosition, MenuScreenProps} from '@interfaces';
-import {
-  APP_BACKGROUND_IMAGE,
-  SELECTED_CATEGORY_POSITIONS,
-} from '../../../constans';
+import {EScreens, ICategory, IDish, MenuScreenProps} from '@interfaces';
+import {SELECTED_CATEGORY_POSITIONS} from '../../../constans';
 import {useNavigation} from '@react-navigation/native';
-import {useSetScreenOptions} from '@hooks';
+import {useConfig, useSetScreenOptions} from '@hooks';
 
 const keyExtractor = (item: any) => item.id;
 
@@ -20,6 +17,9 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
 }) => {
   const {navigate} = useNavigation();
   const positionsList = useRef<FlatList>(null);
+  const {
+    app: {backgroundImage},
+  } = useConfig();
 
   const onSelect = useCallback(
     (item: ICategory) => {
@@ -37,10 +37,10 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
     [],
   );
 
-  const selectedCategoryPosition: IPosition[] = SELECTED_CATEGORY_POSITIONS;
+  const selectedCategoryPosition: IDish[] = SELECTED_CATEGORY_POSITIONS;
 
   const renderItem = useCallback(
-    ({item}: {item: IPosition}) => <Position item={item} />,
+    ({item}: {item: IDish}) => <Position item={item} />,
     [],
   );
 
@@ -59,7 +59,7 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
   const contentContainerStyle = useMemo(() => ({paddingTop: 100}), []);
 
   return (
-    <Background showOverlay={true} image={APP_BACKGROUND_IMAGE}>
+    <Background showOverlay={true} image={backgroundImage}>
       <Row>
         <Block flex={6}>
           <FlatList

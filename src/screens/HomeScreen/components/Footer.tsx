@@ -9,7 +9,7 @@ type Props = {
 
 export const Footer: React.FC<Props> = ({options}) => {
   const renderItem = useCallback(
-    (item: IOption) => <FooterItem key={item.title} option={item} />,
+    (item: IOption) => <FooterItem key={item.id} option={item} />,
     [],
   );
   return (
