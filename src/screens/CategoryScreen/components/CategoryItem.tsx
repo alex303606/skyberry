@@ -4,10 +4,10 @@ import {Colors} from '@config';
 import styled from 'styled-components/native';
 import {Block, IconNames, Typography, Dashes, Button} from '@components';
 import type {Category} from '@interfaces';
+import {useCurrentLanguage, useImageUrl} from '@hooks';
+import {useTranslation} from 'react-i18next';
 
 const {BoldUppercase55, Polls20} = Typography;
-const DefaultImage = require('@assets/images/logo.png');
-
 const {height} = Dimensions.get('screen');
 const IMAGE_SIZE = height * 0.85;
 const IMAGE_MARGIN = -IMAGE_SIZE * 0.3;
@@ -18,7 +18,10 @@ type Props = {
 };
 
 export const CategoryItem: React.FC<Props> = ({item, onSelect}) => {
-  const {description, image, title} = item;
+  const {image} = item;
+  const source = useImageUrl(image);
+  const {title, description} = useCurrentLanguage(item);
+  const {t} = useTranslation();
   const onSelectHandler = useCallback(() => {
     onSelect(item);
   }, [item, onSelect]);
@@ -27,7 +30,7 @@ export const CategoryItem: React.FC<Props> = ({item, onSelect}) => {
     <Container justifyContent={'center'} alignItems={'flex-end'}>
       <Background>
         <Dashes color={Colors.accentColor} padding={200}>
-          <StyledImage source={image ? {uri: image} : DefaultImage} />
+          <StyledImage source={source} />
         </Dashes>
       </Background>
       <Block marginRight={40}>
@@ -48,7 +51,7 @@ export const CategoryItem: React.FC<Props> = ({item, onSelect}) => {
         </Width400>
         <Button
           iconName={IconNames.menu}
-          title="Перейти в меню"
+          title={t('goToMenu')}
           onPress={onSelectHandler}
         />
       </Block>

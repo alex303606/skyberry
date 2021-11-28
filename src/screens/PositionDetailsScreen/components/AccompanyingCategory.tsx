@@ -3,26 +3,19 @@ import {ScrollView} from 'react-native';
 import {Colors} from '@config';
 import {Block, Icon, IconNames, Row, Typography} from '@components';
 import {AccompanyingPosition} from './AccompanyingPosition';
-import {IDish} from '@interfaces';
+import {Dish} from '@interfaces';
 
 const {BoldUppercase32} = Typography;
 
 type Props = {
-  positions: IDish[];
+  positions: Dish[];
   title: string;
 };
 
 export const AccompanyingCategory: React.FC<Props> = ({positions, title}) => {
-  const renderAccompanyingPosition = useCallback(
-    (position: IDish) => (
-      <AccompanyingPosition
-        key={position.id}
-        title={position.title}
-        thumbnailURL={position.images[0]}
-      />
-    ),
-    [],
-  );
+  const renderAccompanyingPosition = useCallback((position: Dish) => {
+    return <AccompanyingPosition key={position.id} position={position} />;
+  }, []);
 
   return (
     <Block marginVertical={50}>

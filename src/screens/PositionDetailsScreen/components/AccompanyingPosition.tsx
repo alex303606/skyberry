@@ -2,22 +2,23 @@ import React from 'react';
 import {Colors} from '@config';
 import {Block, Typography} from '@components';
 import styled from 'styled-components/native';
-const DefaultImage = require('@assets/images/logo.png');
+import {useCurrentLanguage, useImageUrl} from '@hooks';
+import {Dish} from '@interfaces';
 
 const {Chocolates20} = Typography;
 
 type Props = {
-  thumbnailURL: string;
-  title: string;
+  position: Dish;
 };
 
-export const AccompanyingPosition: React.FC<Props> = ({
-  thumbnailURL,
-  title,
-}) => {
+export const AccompanyingPosition: React.FC<Props> = ({position}) => {
+  const {title} = useCurrentLanguage(position);
+  const image = useImageUrl(
+    position.images?.length ? position.images[0] : null,
+  );
   return (
     <Block alignItems={'center'} marginHorizontal={20}>
-      <StyledImage source={thumbnailURL ? {uri: thumbnailURL} : DefaultImage} />
+      <StyledImage source={image} />
       <StyledChocolatesRegular20 color={Colors.secondaryColor}>
         {title}
       </StyledChocolatesRegular20>

@@ -14,5 +14,6 @@ export const ruTranslation = {
       service: 'Обслуживание: {{value}}',
     },
     goToMenu: 'Перейти в меню',
+    recommendedProducts: 'Рекомендуемые предложения',
   },
 };

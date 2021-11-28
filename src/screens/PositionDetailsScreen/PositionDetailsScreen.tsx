@@ -5,35 +5,39 @@ import {Colors} from '@config';
 import {
   PositionGallery,
   AccompanyingCategory,
-  Recommendation,
   TagsComponent,
 } from './components';
-import {IDish, ITag, PositionsDetailsScreenProps} from '@interfaces';
-import {PHOTOS, SELECTED_CATEGORY_POSITIONS, TAGS} from '../../../constans';
-import {useConfig, useSetScreenOptions} from '@hooks';
-
-const thumbnailURL: string =
-  'https://firebasestorage.googleapis.com/v0/b/skyberry-6250a.appspot.com/o/categories%2Fb42tgELj8Zp9ldHNV8tv.png?alt=media&token=bef56186-1092-4ca7-aa61-10990fe01653';
+import {PositionsDetailsScreenProps} from '@interfaces';
+import {
+  useConfig,
+  useCurrentLanguage,
+  useDishesById,
+  useGetOptions,
+  useSetScreenOptions,
+} from '@hooks';
+import {useTranslation} from 'react-i18next';
 
 const {ChocolatesUppercase72, BoldCapitalize20, Polls24, RegularUpperCase72} =
   Typography;
 
 export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
   route: {
-    params: {position},
+    params: {positionId},
   },
 }) => {
-  const selectedCategoryPosition: IDish[] = SELECTED_CATEGORY_POSITIONS;
-  const photos: string[] = PHOTOS;
-  const tags: ITag[] = TAGS;
-
+  const {t} = useTranslation();
+  const [dish] = useDishesById([positionId]);
+  const recommendedProducts = useDishesById(dish.recommended_products || []);
+  const options = useGetOptions(dish.options);
+  const {title, description, ingredients} = useCurrentLanguage(dish);
+  const weight = parseInt(dish.weight, 10);
+  const price = parseInt(dish.price, 10);
   const {
     app: {backgroundImage},
   } = useConfig();
-
   useSetScreenOptions(
     {
-      title: position.title,
+      title,
     },
     [],
   );
@@ -42,7 +46,7 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
     <Background image={backgroundImage} showOverlay={true}>
       <Row>
         <Block flex={3} paddingTop={100}>
-          <PositionGallery thumbnailURL={thumbnailURL} photos={photos} />
+          <PositionGallery photos={dish.images} />
         </Block>
         <Block flex={4} paddingHorizontal={20}>
           <ScrollView>
@@ -50,52 +54,40 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
               marginTop={100}
               color={Colors.titleColor}
               numberOfLines={1}>
-              Лагман
+              {title}
             </ChocolatesUppercase72>
-            <BoldCapitalize20
-              marginVertical={7}
-              color={Colors.textColor}
-              numberOfLines={1}>
-              Вес: 450 Гр.
-            </BoldCapitalize20>
+            {weight && (
+              <BoldCapitalize20
+                marginVertical={7}
+                color={Colors.textColor}
+                numberOfLines={1}>
+                Вес: {weight} Гр.
+              </BoldCapitalize20>
+            )}
             <BoldCapitalize20 color={Colors.textColor} marginVertical={7}>
-              Говяжья вырезка, Репчатый лук, Редька, Помидор, Вода, Чеснок,
-              Растительное масло, Соль, Красный жгучий перец, Свежая зелень
+              {ingredients}
             </BoldCapitalize20>
             <Polls24
               color={Colors.textColor}
               marginVertical={20}
               paddingRight={'20%'}>
-              Легенда о появлении лагмана дошла до нас из Древнего Китая. На
-              перекрестке встретились три голодных путника. У одного были мясо и
-              мука, у другого вода и сковорода, у третьего овощи и травы. Они
-              решили вместе сварить одно блюдо на всех. Так появился вкусный и
-              простой лагман. Конечно, рецепт лагмана в домашних условиях
-              менялся: например, в него добавляли больше овощей, специй. В любом
-              случае, сейчас его можно приготовить ничуть не хуже, чем в Древнем
-              Китае.
+              {description}
             </Polls24>
-            <TagsComponent tags={tags} />
+            {!!options.length && <TagsComponent tags={options} />}
             <Row marginVertical={20}>
               <RegularUpperCase72
                 marginRight={20}
                 color={Colors.secondaryColor}
                 numberOfLines={1}>
-                Цена: 200 сом
+                Цена: {price} сом
               </RegularUpperCase72>
             </Row>
-            <AccompanyingCategory
-              title={'Сопровождающая позиция'}
-              positions={selectedCategoryPosition}
-            />
-            <Recommendation
-              recommendationTitle={'Рекомендации'}
-              title={'Салаты'}
-              description={
-                'Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.'
-              }
-              thumbnailURL={thumbnailURL}
-            />
+            {recommendedProducts?.length && (
+              <AccompanyingCategory
+                title={t('recommendedProducts')}
+                positions={recommendedProducts}
+              />
+            )}
           </ScrollView>
         </Block>
       </Row>

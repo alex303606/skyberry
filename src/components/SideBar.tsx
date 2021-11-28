@@ -1,6 +1,5 @@
 import React, {useCallback} from 'react';
 import {ScrollView, LayoutChangeEvent} from 'react-native';
-import {CATEGORIES} from '../../constans';
 import {NavItem} from '@components';
 import {Block} from './helpers';
 import {Category} from '@interfaces';
@@ -9,17 +8,17 @@ type Props = {
   activeNavItemId: string;
   onSelect: (category: Category) => void;
   onNavLayout?: (event: LayoutChangeEvent) => void;
+  categories: Category[];
 };
 
 export const SideBar = React.forwardRef<ScrollView, Props>(
-  ({activeNavItemId, onSelect, onNavLayout, ...props}, ref) => {
+  ({activeNavItemId, onSelect, onNavLayout, categories, ...props}, ref) => {
     const onLayoutHandler = useCallback(
       (index: number) => () => {
         return index === 0 ? onNavLayout : undefined;
       },
       [onNavLayout],
     );
-    const categories: Category[] = CATEGORIES;
 
     const renderItem = useCallback(
       (category: Category, index) => (

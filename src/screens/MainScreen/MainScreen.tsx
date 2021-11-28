@@ -58,7 +58,7 @@ export const MainScreen: React.FC<MainScreenProps> = () => {
     <Background image={promoImage} showOverlay={false}>
       <Block flex={1} alignItems={'flex-end'} justifyContent={'flex-end'}>
         <StyledPressable onPress={handleNavigateToMenu}>
-          <Regular30 color={Colors.fillColor}>Перейти в меню</Regular30>
+          <Regular30 color={Colors.fillColor}>{t('goToMenu')}</Regular30>
         </StyledPressable>
       </Block>
     </Background>

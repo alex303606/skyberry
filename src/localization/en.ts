@@ -14,5 +14,6 @@ export const enTranslation = {
       service: 'Service: {{value}}',
     },
     goToMenu: 'Go to the menu',
+    recommendedProducts: 'Recommended offers',
   },
 };

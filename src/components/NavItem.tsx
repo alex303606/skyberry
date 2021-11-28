@@ -4,6 +4,7 @@ import {Block, Icon, IconNames, Row, Typography} from '@components';
 import {Colors} from '@config';
 import styled from 'styled-components/native';
 import {Category} from '@interfaces';
+import {useCurrentLanguage} from '@hooks';
 
 const {RegularUpperCase18} = Typography;
 
@@ -22,13 +23,14 @@ export const NavItem: React.FC<Props> = ({
 }) => {
   const bullet = active ? (
     <Block>
-      <Icon color={Colors.accentColor} name={IconNames.activeItem} size={35} />
+      <Icon color={Colors.accentColor} name={IconNames.cuisine} size={35} />
     </Block>
   ) : (
     <Bullet backgroundColor={Colors.accentColor} />
   );
 
-  const {title, childCount} = category;
+  const {childCount} = category;
+  const {title} = useCurrentLanguage(category);
 
   const onPressHandler = useCallback(() => {
     onPress(category);
@@ -46,7 +48,7 @@ export const NavItem: React.FC<Props> = ({
           <RegularUpperCase18
             numberOfLines={1}
             color={active ? Colors.accentColor : Colors.secondaryColor}>
-            {title.ru || ''}
+            {title}
             {` (${childCount})`}
           </RegularUpperCase18>
         </Block>

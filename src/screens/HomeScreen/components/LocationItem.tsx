@@ -12,8 +12,8 @@ type Props = {
 };
 
 export const LocationItem: React.FC<Props> = ({location, onPress}) => {
-  const {title, icon} = location;
-  const lang = useCurrentLanguage();
+  const {icon} = location;
+  const {title} = useCurrentLanguage(location);
   const onPressHandler = useCallback(
     () => onPress(location),
     [location, onPress],
@@ -26,7 +26,7 @@ export const LocationItem: React.FC<Props> = ({location, onPress}) => {
           <Icon name={icon} color={Colors.accentColor} size={30} />
         </IconWrapper>
         <Regular22 numberOfLines={1} color={Colors.accentColor}>
-          {title[lang]}
+          {title}
         </Regular22>
       </StyledPressable>
     </Wrapper>

@@ -3,6 +3,7 @@ import {TouchableWithoutFeedback} from 'react-native';
 import styled from 'styled-components/native';
 import {Block} from '@components';
 import {Colors} from '@config';
+import {useImageUrl} from '@hooks';
 
 type Props = {
   photo: string;
@@ -15,6 +16,8 @@ export const PositionGalleryItem: React.FC<Props> = ({
   setActivePhoto,
   active,
 }) => {
+  const image = useImageUrl(photo);
+
   const setActiveHandler = useCallback(
     () => setActivePhoto(photo),
     [photo, setActivePhoto],
@@ -23,11 +26,7 @@ export const PositionGalleryItem: React.FC<Props> = ({
   return (
     <TouchableWithoutFeedback key={photo} onPress={setActiveHandler}>
       <Photo active={active} marginRight={15}>
-        <StyledPhoto
-          source={{
-            uri: photo,
-          }}
-        />
+        <StyledPhoto source={image} />
       </Photo>
     </TouchableWithoutFeedback>
   );

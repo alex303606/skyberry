@@ -2,15 +2,17 @@ import React, {useCallback, useState} from 'react';
 import styled from 'styled-components/native';
 import {Block} from '@components';
 import {PositionGalleryItem} from './PositionGalleryItem';
-const DefaultImage = require('@assets/images/logo.png');
+import {useImageUrl} from '@hooks';
 
 type Props = {
-  thumbnailURL: string;
-  photos: string[];
+  photos: string[] | null;
 };
 
-export const PositionGallery: React.FC<Props> = ({thumbnailURL, photos}) => {
-  const [activePhoto, setActivePhoto] = useState<string>(photos[0]);
+export const PositionGallery: React.FC<Props> = ({photos}) => {
+  const [activePhoto, setActivePhoto] = useState(
+    photos?.length ? photos[0] : null,
+  );
+  const activePhotoUri = useImageUrl(activePhoto);
 
   const renderPhoto = useCallback(
     (photo: string) => (
@@ -26,21 +28,15 @@ export const PositionGallery: React.FC<Props> = ({thumbnailURL, photos}) => {
 
   return (
     <Block>
-      {photos.length ? (
+      {photos?.length && photos.length > 1 ? (
         <>
-          <StyledImage
-            source={{
-              uri: activePhoto,
-            }}
-          />
+          <StyledImage source={activePhotoUri} />
           <StyledScrollView horizontal>
             {photos.map(renderPhoto)}
           </StyledScrollView>
         </>
       ) : (
-        <StyledImage
-          source={thumbnailURL ? {uri: thumbnailURL} : DefaultImage}
-        />
+        <StyledImage source={activePhotoUri} />
       )}
     </Block>
   );

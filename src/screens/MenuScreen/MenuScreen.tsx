@@ -3,18 +3,25 @@ import {Background, Block, Row, Position, SideBar} from '@components';
 import {FlatList} from 'react-native';
 import Dash from 'react-native-dash';
 import {Colors} from '@config';
-import {EScreens, Category, IDish, MenuScreenProps} from '@interfaces';
-import {SELECTED_CATEGORY_POSITIONS} from '../../../constans';
+import {EScreens, Category, MenuScreenProps, Dish} from '@interfaces';
 import {useNavigation} from '@react-navigation/native';
-import {useConfig, useSetScreenOptions} from '@hooks';
+import {
+  useConfig,
+  useSetScreenOptions,
+  useCategoriesByParentId,
+  useCurrentLanguage,
+} from '@hooks';
+import {useCategoriesById} from './hooks';
 
 const keyExtractor = (item: any) => item.id;
 
 export const MenuScreen: React.FC<MenuScreenProps> = ({
   route: {
-    params: {category},
+    params: {categoryId, parentCategoryId},
   },
 }) => {
+  const category = useCategoriesById(categoryId);
+  const categories = useCategoriesByParentId(parentCategoryId);
   const {navigate} = useNavigation();
   const positionsList = useRef<FlatList>(null);
   const {
@@ -24,23 +31,22 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
   const onSelect = useCallback(
     (item: Category) => {
       navigate(EScreens.MENU_SCREEN, {
-        category: item,
+        categoryId: item.id,
+        parentCategoryId,
       });
     },
-    [navigate],
+    [navigate, parentCategoryId],
   );
 
   useSetScreenOptions(
     {
-      title: category.title,
+      title: useCurrentLanguage(category).title,
     },
     [],
   );
 
-  const selectedCategoryPosition: IDish[] = SELECTED_CATEGORY_POSITIONS;
-
   const renderItem = useCallback(
-    ({item}: {item: IDish}) => <Position item={item} />,
+    ({item}: {item: Dish}) => <Position item={item} />,
     [],
   );
 
@@ -58,6 +64,10 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
 
   const contentContainerStyle = useMemo(() => ({paddingTop: 100}), []);
 
+  if (!category) {
+    return null;
+  }
+
   return (
     <Background showOverlay={true} image={backgroundImage}>
       <Row>
@@ -65,13 +75,17 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
           <FlatList
             ref={positionsList}
             contentContainerStyle={contentContainerStyle}
-            data={selectedCategoryPosition}
+            data={category.dishes}
             keyExtractor={keyExtractor}
             ItemSeparatorComponent={separatorComponent}
             renderItem={renderItem}
           />
         </Block>
-        <SideBar activeNavItemId={category.id} onSelect={onSelect} />
+        <SideBar
+          categories={categories}
+          activeNavItemId={category.id}
+          onSelect={onSelect}
+        />
       </Row>
     </Background>
   );

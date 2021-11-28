@@ -9,9 +9,12 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {CategoryScreenProps, EScreens, Category} from '@interfaces';
-import {CATEGORIES} from '../../../constans';
-import {useConfig, useSetScreenOptions} from '@hooks';
-import {useTranslation} from 'react-i18next';
+import {
+  useConfig,
+  useCurrentLanguage,
+  useSetScreenOptions,
+  useCategoriesByParentId,
+} from '@hooks';
 
 const {height} = Dimensions.get('screen');
 
@@ -28,20 +31,19 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
     params: {location},
   },
 }) => {
-  const {t} = useTranslation();
+  const categories = useCategoriesByParentId(location.id);
   const {navigate} = useNavigation();
   const navList = useRef<ScrollView | null>(null);
   const categoriesList = useRef<FlatList>(null);
   const [navItemHeight, setNavItemHeight] = useState<number>(0);
   const [currentScrollPosition, setCurrentScrollPosition] = useState<number>(0);
-  const [activeNavItem, setActiveNavItem] = useState<number>(0);
+  const [activeNavItem, setActiveNavItem] = useState<string>(categories[0].id);
   const {
     app: {backgroundImage},
   } = useConfig();
-
   useSetScreenOptions(
     {
-      title: t(`categories.${location.name}`),
+      title: useCurrentLanguage(location).title,
     },
     [],
   );
@@ -60,9 +62,9 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
       const page = Math.floor(categoryIndex / navItemsPerPage);
       navList.current?.scrollTo({y: page * layoutHeight});
       setCurrentScrollPosition(scrollPosition);
-      setActiveNavItem(CATEGORIES[categoryIndex].id);
+      setActiveNavItem(categories[categoryIndex].id);
     },
-    [navItemHeight],
+    [categories, navItemHeight],
   );
 
   const onTopPressed = useCallback(() => {
@@ -81,23 +83,22 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
       (currentScrollPosition + height) / height,
     );
 
-    if (futurePositionIndex < CATEGORIES.length) {
+    if (futurePositionIndex < categories.length) {
       categoriesList.current?.scrollToIndex({
         index: futurePositionIndex,
       });
     }
-  }, [currentScrollPosition]);
+  }, [categories.length, currentScrollPosition]);
 
   const onSelect = useCallback(
     (category: Category) => {
       navigate(EScreens.MENU_SCREEN, {
-        category,
+        categoryId: category.id,
+        parentCategoryId: location.id,
       });
     },
-    [navigate],
+    [location.id, navigate],
   );
-
-  const categories: Category[] = CATEGORIES;
 
   const renderItem = useCallback(
     ({item}: {item: Category}) => (
@@ -127,6 +128,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
           />
         </Block>
         <SideBar
+          categories={categories}
           onNavLayout={onNavLayout}
           activeNavItemId={activeNavItem}
           onSelect={onSelect}
