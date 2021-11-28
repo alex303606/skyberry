@@ -14,7 +14,10 @@ const initialState: IConfigState = {
   languages: [],
 };
 
-export const configReducer = (state = initialState, action: AnyAction) => {
+export const configReducer = (
+  state = initialState,
+  action: AnyAction,
+): IConfigState => {
   switch (action.type) {
     case INIT_CONFIG:
       return {...state, ...action.config};

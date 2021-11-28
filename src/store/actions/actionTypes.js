@@ -1,1 +1,4 @@
 export const INIT_CONFIG = 'INIT_CONFIG';
+export const INIT_MAIN_CATEGORIES = 'INIT_MAIN_CATEGORIES';
+export const INIT_MENU = 'INIT_MENU';
+export const INIT_DISHES = 'INIT_DISHES';

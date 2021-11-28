@@ -3,15 +3,15 @@ import {TouchableOpacity, LayoutChangeEvent} from 'react-native';
 import {Block, Icon, IconNames, Row, Typography} from '@components';
 import {Colors} from '@config';
 import styled from 'styled-components/native';
-import {ICategory} from '@interfaces';
+import {Category} from '@interfaces';
 
 const {RegularUpperCase18} = Typography;
 
 type Props = {
   active: boolean;
   onLayout?: (event: LayoutChangeEvent) => void;
-  onPress: (category: ICategory) => void;
-  category: ICategory;
+  onPress: (category: Category) => void;
+  category: Category;
 };
 
 export const NavItem: React.FC<Props> = ({
@@ -46,7 +46,7 @@ export const NavItem: React.FC<Props> = ({
           <RegularUpperCase18
             numberOfLines={1}
             color={active ? Colors.accentColor : Colors.secondaryColor}>
-            {title}
+            {title.ru || ''}
             {` (${childCount})`}
           </RegularUpperCase18>
         </Block>

@@ -3,7 +3,7 @@ import {Background, Block, Row, Position, SideBar} from '@components';
 import {FlatList} from 'react-native';
 import Dash from 'react-native-dash';
 import {Colors} from '@config';
-import {EScreens, ICategory, IDish, MenuScreenProps} from '@interfaces';
+import {EScreens, Category, IDish, MenuScreenProps} from '@interfaces';
 import {SELECTED_CATEGORY_POSITIONS} from '../../../constans';
 import {useNavigation} from '@react-navigation/native';
 import {useConfig, useSetScreenOptions} from '@hooks';
@@ -22,7 +22,7 @@ export const MenuScreen: React.FC<MenuScreenProps> = ({
   } = useConfig();
 
   const onSelect = useCallback(
-    (item: ICategory) => {
+    (item: Category) => {
       navigate(EScreens.MENU_SCREEN, {
         category: item,
       });

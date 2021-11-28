@@ -1,17 +1,15 @@
-import {IConfig, IMainCategory} from '@interfaces';
+import {Category, Dish, IConfig, MainCategory} from '@interfaces';
 
 export interface IConfigState extends IConfig {}
 
 export interface IMainCategoryState {
-  mainCategories: IMainCategory[];
+  mainCategories: MainCategory[];
 }
 
 export interface IMenuState {
-  categories: [];
+  categories: Category[];
 }
 
-export interface RootState {
-  menu: IMenuState;
-  mainCategory: IMainCategoryState;
-  config: IConfigState;
+export interface IDishesState {
+  dishes: Dish[];
 }

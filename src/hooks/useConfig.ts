@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import {RootState} from '@interfaces';
+import {RootState} from 'src/store/configureStore';
 
 export const useConfig = () => {
   return {

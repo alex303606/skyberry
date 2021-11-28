@@ -3,7 +3,7 @@ import {Dimensions} from 'react-native';
 import {Colors} from '@config';
 import styled from 'styled-components/native';
 import {Block, IconNames, Typography, Dashes, Button} from '@components';
-import {ICategory} from '@interfaces';
+import type {Category} from '@interfaces';
 
 const {BoldUppercase55, Polls20} = Typography;
 const DefaultImage = require('@assets/images/logo.png');
@@ -13,11 +13,11 @@ const IMAGE_SIZE = height * 0.85;
 const IMAGE_MARGIN = -IMAGE_SIZE * 0.3;
 
 type Props = {
-  item: ICategory;
-  onSelect: (item: ICategory) => void;
+  item: Category;
+  onSelect: (item: Category) => void;
 };
 
-export const Category: React.FC<Props> = ({item, onSelect}) => {
+export const CategoryItem: React.FC<Props> = ({item, onSelect}) => {
   const {description, image, title} = item;
   const onSelectHandler = useCallback(() => {
     onSelect(item);

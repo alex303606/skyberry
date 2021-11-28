@@ -1,22 +1,62 @@
 import {IconNames} from '@components';
 
-export interface IMainCategory {
-  id: number;
-  title: string;
+// Катерии полученные с сервера
+export interface ICategory {
+  id: string;
+  title: string | null;
+  icon?: string | null;
   parent_category_id: string; //если 0, главная категория
-}
-
-export interface ICategory extends IMainCategory {
   image: string | null;
-  description?: string;
+  description?: string | null;
   childCount?: number;
   dishes?: IDish[];
 }
 
+export interface Category {
+  id: string;
+  title: {
+    ru: string;
+    en: string;
+  };
+  description: {
+    ru: string;
+    en: string;
+  };
+  parent_category_id: string; //если 0, главная категория
+  image: string | null;
+  childCount?: number;
+  dishes?: Dish[];
+  avaliable: boolean;
+}
+
+export interface MainCategory extends Category {
+  icon: string;
+}
+
+// Блюда полученные с сервера
 export type IDish = {
   id: number;
-  title: string;
-  description: string;
+  title: string | null;
+  ingredients: string | null;
+  description: string | null;
+  price: number;
+  images: string[];
+};
+
+export type Dish = {
+  id: number;
+  title: {
+    ru: string;
+    en: string;
+  };
+  description: {
+    ru: string;
+    en: string;
+  };
+  ingredients: {
+    ru: string;
+    en: string;
+  };
   price: number;
   images: string[];
 };

@@ -1,6 +1,6 @@
 import React, {useRef, useState, useCallback} from 'react';
 import {Background, Block, Row, SideBar} from '@components';
-import {Category, NavigationComponent} from './components';
+import {CategoryItem, NavigationComponent} from './components';
 import {
   Dimensions,
   FlatList,
@@ -8,7 +8,7 @@ import {
   LayoutChangeEvent,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {CategoryScreenProps, EScreens, ICategory} from '@interfaces';
+import {CategoryScreenProps, EScreens, Category} from '@interfaces';
 import {CATEGORIES} from '../../../constans';
 import {useConfig, useSetScreenOptions} from '@hooks';
 import {useTranslation} from 'react-i18next';
@@ -89,7 +89,7 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
   }, [currentScrollPosition]);
 
   const onSelect = useCallback(
-    (category: ICategory) => {
+    (category: Category) => {
       navigate(EScreens.MENU_SCREEN, {
         category,
       });
@@ -97,11 +97,11 @@ export const CategoryScreen: React.FC<CategoryScreenProps> = ({
     [navigate],
   );
 
-  const categories: ICategory[] = CATEGORIES;
+  const categories: Category[] = CATEGORIES;
 
   const renderItem = useCallback(
-    ({item}: {item: ICategory}) => (
-      <Category key={item.id} item={item} onSelect={onSelect} />
+    ({item}: {item: Category}) => (
+      <CategoryItem key={item.id} item={item} onSelect={onSelect} />
     ),
     [onSelect],
   );

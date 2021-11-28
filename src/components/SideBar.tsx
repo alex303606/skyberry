@@ -3,11 +3,11 @@ import {ScrollView, LayoutChangeEvent} from 'react-native';
 import {CATEGORIES} from '../../constans';
 import {NavItem} from '@components';
 import {Block} from './helpers';
-import {ICategory} from '@interfaces';
+import {Category} from '@interfaces';
 
 type Props = {
-  activeNavItemId: number;
-  onSelect: (category: ICategory) => void;
+  activeNavItemId: string;
+  onSelect: (category: Category) => void;
   onNavLayout?: (event: LayoutChangeEvent) => void;
 };
 
@@ -19,10 +19,10 @@ export const SideBar = React.forwardRef<ScrollView, Props>(
       },
       [onNavLayout],
     );
-    const categories: ICategory[] = CATEGORIES;
+    const categories: Category[] = CATEGORIES;
 
     const renderItem = useCallback(
-      (category, index) => (
+      (category: Category, index) => (
         <NavItem
           category={category}
           onLayout={onLayoutHandler(index)}

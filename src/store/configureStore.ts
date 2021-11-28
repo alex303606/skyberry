@@ -3,7 +3,12 @@ import thunkMiddleware from 'redux-thunk';
 import {createStore} from 'redux';
 import {persistStore, persistReducer} from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
-import {menuReducer, mainCategoryReducer, configReducer} from './reducers';
+import {
+  menuReducer,
+  mainCategoryReducer,
+  configReducer,
+  dishesReducer,
+} from './reducers';
 
 const middlewares = [thunkMiddleware];
 
@@ -18,6 +23,7 @@ const appReducer = combineReducers({
   menu: menuReducer,
   mainCategory: mainCategoryReducer,
   config: configReducer,
+  dishes: dishesReducer,
 });
 
 const persistConfig = {
