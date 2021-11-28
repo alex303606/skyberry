@@ -1,4 +1,4 @@
-import {EScreens, Category, ILocation, IDish} from '@interfaces';
+import {EScreens, Category, IDish, MainCategory} from '@interfaces';
 import {MutableRefObject, RefObject} from 'react';
 import {NavigationContainerRef} from '@react-navigation/native';
 import {StackScreenProps} from '@react-navigation/stack';
@@ -12,7 +12,7 @@ export interface INavigationService {
 export type RootStackParamList = {
   [EScreens.HOME_SCREEN]: undefined;
   [EScreens.MAIN_SCREEN]: undefined;
-  [EScreens.CATEGORY_SCREEN]: {location: ILocation};
+  [EScreens.CATEGORY_SCREEN]: {location: MainCategory};
   [EScreens.MENU_SCREEN]: {category: Category};
   [EScreens.POSITION_DETAILS_SCREEN]: {position: IDish};
 };

@@ -4,7 +4,7 @@ import {IconNames} from '@components';
 export interface ICategory {
   id: string;
   title: string | null;
-  icon?: string | null;
+  icon?: IconNames;
   parent_category_id: string; //если 0, главная категория
   image: string | null;
   description?: string | null;
@@ -30,7 +30,7 @@ export interface Category {
 }
 
 export interface MainCategory extends Category {
-  icon: string;
+  icon: IconNames;
 }
 
 // Блюда полученные с сервера
@@ -78,12 +78,6 @@ export type IOption = {
   icon: IconNames;
   title: string;
   value: string;
-};
-
-export type ILocation = {
-  id: number;
-  name: string;
-  icon: IconNames;
 };
 
 export type ITag = {

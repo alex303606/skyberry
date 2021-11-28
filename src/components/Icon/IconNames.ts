@@ -1,6 +1,6 @@
 export enum IconNames {
   bar = 'bar',
-  activeItem = 'activeItem',
+  cuisine = 'cuisine',
   brightness = 'brightness',
   cherry = 'cherry',
   clock = 'clock',

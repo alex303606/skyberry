@@ -13,5 +13,6 @@ export const enTranslation = {
       workingHours: 'Working hours: {{value}}',
       service: 'Service: {{value}}',
     },
+    goToMenu: 'Go to the menu',
   },
 };

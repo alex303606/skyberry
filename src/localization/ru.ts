@@ -13,5 +13,6 @@ export const ruTranslation = {
       workingHours: 'Режим работы: {{value}}',
       service: 'Обслуживание: {{value}}',
     },
+    goToMenu: 'Перейти в меню',
   },
 };

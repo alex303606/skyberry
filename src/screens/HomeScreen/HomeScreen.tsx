@@ -2,16 +2,16 @@ import React, {useCallback} from 'react';
 import {Block, Background} from '@components';
 import {LanguagePicker, SocialNetworks, Footer, Locations} from './components';
 import styled from 'styled-components/native';
-import {MENU} from '../../../constans';
 import {useNavigation} from '@react-navigation/native';
-import {EScreens, HomeScreenProps, ILocation} from '@interfaces';
+import {EScreens, HomeScreenProps, MainCategory} from '@interfaces';
 import {useConfig} from '@hooks';
+import {useMainCategories} from './hooks';
 const logo = require('@assets/images/logo.png');
 
 export const HomeScreen: React.FC<HomeScreenProps> = () => {
   const {navigate} = useNavigation();
   const navigateToCategoryHandler = useCallback(
-    (location: ILocation) => {
+    (location: MainCategory) => {
       navigate(EScreens.CATEGORY_SCREEN, {
         location,
       });
@@ -20,7 +20,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
   );
 
   const {socialNetworks, app, options, languages} = useConfig();
-  const locations: ILocation[] = MENU;
+  const {mainCategories} = useMainCategories();
 
   return (
     <Background image={app.backgroundImage}>
@@ -32,7 +32,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
         <StyledBlock>
           <Locations
             onSelectCategory={navigateToCategoryHandler}
-            locations={locations}
+            locations={mainCategories}
           />
           <Footer options={options} />
         </StyledBlock>

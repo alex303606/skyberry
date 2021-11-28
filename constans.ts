@@ -1,23 +1,3 @@
-import {IconNames} from '@components';
-
-export const MENU = [
-  {
-    id: 0,
-    name: 'cuisine',
-    icon: IconNames.activeItem,
-  },
-  {
-    id: 1,
-    name: 'bar',
-    icon: IconNames.bar,
-  },
-  {
-    id: 2,
-    name: 'sushi',
-    icon: IconNames.sushi,
-  },
-];
-
 export const CATEGORIES = [
   {
     parent_category_id: '1',

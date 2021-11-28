@@ -1,19 +1,19 @@
 import React, {useCallback} from 'react';
 import {Row} from '@components';
 import {LocationItem} from './LocationItem';
-import {ILocation} from '@interfaces';
+import {MainCategory} from '@interfaces';
 
 type Props = {
-  locations: ILocation[];
-  onSelectCategory: (location: ILocation) => void;
+  locations: MainCategory[];
+  onSelectCategory: (location: MainCategory) => void;
 };
 
 export const Locations: React.FC<Props> = ({locations, onSelectCategory}) => {
   const renderItem = useCallback(
-    (location: ILocation) => (
+    (location: MainCategory) => (
       <LocationItem
         onPress={onSelectCategory}
-        key={location.name}
+        key={location.id}
         location={location}
       />
     ),

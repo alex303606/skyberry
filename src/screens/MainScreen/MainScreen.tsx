@@ -6,11 +6,13 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {EScreens, MainScreenProps} from '@interfaces';
 import {useConfig, useHardwareBackPress} from '@hooks';
 import {VideoPlayer} from './components';
+import {useTranslation} from 'react-i18next';
 const {Regular30} = Typography;
 
 export const MainScreen: React.FC<MainScreenProps> = () => {
   const {navigate} = useNavigation();
   const onHardwareBack = useCallback(() => true, []);
+  const {t} = useTranslation();
   useHardwareBackPress(onHardwareBack);
   const {
     app: {promoImage, promoVideo},
@@ -45,7 +47,7 @@ export const MainScreen: React.FC<MainScreenProps> = () => {
         />
         <Block flex={1} alignItems={'flex-end'} justifyContent={'flex-end'}>
           <StyledPressable onPress={handleNavigateToMenu}>
-            <Regular30 color={Colors.fillColor}>Перейти в меню</Regular30>
+            <Regular30 color={Colors.fillColor}>{t('goToMenu')}</Regular30>
           </StyledPressable>
         </Block>
       </Block>

@@ -1,0 +1,1 @@
+export {useMainCategories} from './useMainCategories';

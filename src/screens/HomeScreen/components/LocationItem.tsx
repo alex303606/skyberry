@@ -2,19 +2,18 @@ import React, {useCallback} from 'react';
 import {Colors} from '@config';
 import styled from 'styled-components/native';
 import {Icon, Typography} from '@components';
-import {ILocation} from '@interfaces';
-import {useTranslation} from 'react-i18next';
+import {MainCategory} from '@interfaces';
+import {useCurrentLanguage} from '@hooks';
 const {Regular22} = Typography;
 
 type Props = {
-  location: ILocation;
-  onPress: (location: ILocation) => void;
+  location: MainCategory;
+  onPress: (location: MainCategory) => void;
 };
 
 export const LocationItem: React.FC<Props> = ({location, onPress}) => {
-  const {name, icon} = location;
-  const {t} = useTranslation();
-
+  const {title, icon} = location;
+  const lang = useCurrentLanguage();
   const onPressHandler = useCallback(
     () => onPress(location),
     [location, onPress],
@@ -27,7 +26,7 @@ export const LocationItem: React.FC<Props> = ({location, onPress}) => {
           <Icon name={icon} color={Colors.accentColor} size={30} />
         </IconWrapper>
         <Regular22 numberOfLines={1} color={Colors.accentColor}>
-          {t(`categories.${name}`)}
+          {title[lang]}
         </Regular22>
       </StyledPressable>
     </Wrapper>
