@@ -15,5 +15,8 @@ export const enTranslation = {
     },
     goToMenu: 'Go to the menu',
     recommendedProducts: 'Recommended offers',
+    weight: 'Weight {{weight}}  gr.',
+    currency: 'som',
+    price: 'Price: ',
   },
 };

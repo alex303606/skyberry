@@ -37,6 +37,7 @@ const capitalizeStyle = {textTransform: 'capitalize'} as const;
 const regularUppercase = styled(regular)(upperCaseStyle);
 const regularLowercase = styled(regular)(lowerCaseStyle);
 const boldCapitalize = styled(bold)(capitalizeStyle);
+const regularCapitalize = styled(regular)(capitalizeStyle);
 const chocolatesUppercase = styled(chocolates)(upperCaseStyle);
 const boldUppercase = styled(bold)(upperCaseStyle);
 
@@ -57,6 +58,7 @@ const RegularLowercase20 = styled(regularLowercase)(createFontStyle(20, 22));
 const RegularLowerCase22 = styled(regularLowercase)(createFontStyle(22, 26));
 const RegularUpperCase22 = styled(regularUppercase)(createFontStyle(22, 26));
 const RegularUpperCase72 = styled(regularUppercase)(createFontStyle(72, 86));
+const RegularCapitalize22 = styled(regularCapitalize)(createFontStyle(22, 26));
 
 const BoldCapitalize20 = styled(boldCapitalize)(createFontStyle(20, 24));
 const BoldUppercase32 = styled(boldUppercase)(createFontStyle(32, 36));
@@ -90,6 +92,7 @@ export const Typography = {
   RegularLowerCase22,
   RegularUpperCase22,
   RegularUpperCase72,
+  RegularCapitalize22,
   BoldCapitalize20,
   BoldUppercase32,
   BoldUpperCase48,

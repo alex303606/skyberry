@@ -56,12 +56,12 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
               numberOfLines={1}>
               {title}
             </ChocolatesUppercase72>
-            {weight && (
+            {!!weight && (
               <BoldCapitalize20
                 marginVertical={7}
                 color={Colors.textColor}
                 numberOfLines={1}>
-                Вес: {weight} Гр.
+                {t('weight', {weight})}
               </BoldCapitalize20>
             )}
             <BoldCapitalize20 color={Colors.textColor} marginVertical={7}>
@@ -79,10 +79,11 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
                 marginRight={20}
                 color={Colors.secondaryColor}
                 numberOfLines={1}>
-                Цена: {price} сом
+                {t('price')}
+                {price} {t('currency')}
               </RegularUpperCase72>
             </Row>
-            {recommendedProducts?.length && (
+            {!!recommendedProducts?.length && (
               <AccompanyingCategory
                 title={t('recommendedProducts')}
                 positions={recommendedProducts}

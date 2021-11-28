@@ -8,9 +8,8 @@ import styled from 'styled-components/native';
 import {EScreens, Dish} from '@interfaces';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import {useCurrentLanguage} from '@hooks';
+import {useCurrentLanguage, useImageUrl} from '@hooks';
 const {Regular48, Regular24, ChocolatesUppercase36, Polls18} = Typography;
-const DefaultImage = require('@assets/images/logo.png');
 
 type Props = {
   item: Dish;
@@ -28,12 +27,12 @@ export const Position: React.FC<Props> = ({item}) => {
     });
   }, [item, navigate]);
 
+  const image = useImageUrl(images?.length ? images[0] : null);
+
   return (
     <TouchableWithoutFeedback onPress={navigateToPosition}>
       <Row alignItems={'center'} paddingVertical={25} paddingLeft={40}>
-        <StyledImage
-          source={images?.length ? {uri: images[0]} : DefaultImage}
-        />
+        <StyledImage source={image} />
         <Block flex={1} paddingHorizontal={40}>
           <ChocolatesUppercase36
             numberOfLines={1}
@@ -52,8 +51,10 @@ export const Position: React.FC<Props> = ({item}) => {
         </Block>
         <Dashes color={Colors.accentColor} thickness={2} padding={12}>
           <PriceContainer backgroundColor={Colors.accentColor}>
-            <Regular48 color={Colors.fillColor}>{price}</Regular48>
-            <Regular24 color={Colors.fillColor}>СОМ</Regular24>
+            <Regular48 color={Colors.fillColor}>
+              {parseInt(price, 10)}
+            </Regular48>
+            <Regular24 color={Colors.fillColor}>{t('currency')}</Regular24>
           </PriceContainer>
         </Dashes>
       </Row>

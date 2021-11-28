@@ -15,5 +15,8 @@ export const ruTranslation = {
     },
     goToMenu: 'Перейти в меню',
     recommendedProducts: 'Рекомендуемые предложения',
+    weight: 'Вес: {{weight}}  гр.',
+    currency: 'сом',
+    price: 'Цена: ',
   },
 };

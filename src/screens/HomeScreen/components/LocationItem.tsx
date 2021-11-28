@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import {Icon, Typography} from '@components';
 import {MainCategory} from '@interfaces';
 import {useCurrentLanguage} from '@hooks';
-const {Regular22} = Typography;
+const {RegularCapitalize22} = Typography;
 
 type Props = {
   location: MainCategory;
@@ -25,9 +25,9 @@ export const LocationItem: React.FC<Props> = ({location, onPress}) => {
         <IconWrapper>
           <Icon name={icon} color={Colors.accentColor} size={30} />
         </IconWrapper>
-        <Regular22 numberOfLines={1} color={Colors.accentColor}>
+        <RegularCapitalize22 numberOfLines={1} color={Colors.accentColor}>
           {title}
-        </Regular22>
+        </RegularCapitalize22>
       </StyledPressable>
     </Wrapper>
   );
