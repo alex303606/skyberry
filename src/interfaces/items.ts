@@ -89,6 +89,9 @@ export type IOption = {
 export type ITag = {
   id: number;
   backgroundColor: string;
-  label: string;
+  label: {
+    ru: string;
+    en: string;
+  };
   icon: IconNames;
 };

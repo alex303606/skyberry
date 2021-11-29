@@ -3,6 +3,7 @@ import {Block, Icon, IconNames, Row, Typography} from '@components';
 import {Colors} from '@config';
 import styled from 'styled-components/native';
 import {ITag} from '@interfaces';
+import {useCurrentLanguage} from '@hooks';
 
 const {RegularLowercase20} = Typography;
 
@@ -11,7 +12,8 @@ type Props = {
 };
 
 export const Tag: React.FC<Props> = ({tag}) => {
-  const {backgroundColor, label} = tag;
+  const {backgroundColor} = tag;
+  const {label} = useCurrentLanguage(tag);
 
   return (
     <Wrapper

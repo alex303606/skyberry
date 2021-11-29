@@ -28,6 +28,10 @@ type Translations =
         ru: string;
         en: string;
       };
+      label?: {
+        ru: string;
+        en: string;
+      };
     }
   | undefined;
 
@@ -40,11 +44,12 @@ export const useCurrentLanguage = (translations: Translations) => {
       ingredients: '',
     };
   }
-  const {title, description, ingredients} = translations;
+  const {title, description, ingredients, label} = translations;
   const currentLang = languagesMap[i18n.language] as Lang;
   return {
     title: title ? title[currentLang] : '',
     description: description ? description[currentLang] : '',
     ingredients: ingredients ? ingredients[currentLang] : '',
+    label: label ? label[currentLang] : '',
   };
 };
