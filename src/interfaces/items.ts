@@ -90,5 +90,5 @@ export type ITag = {
   id: number;
   backgroundColor: string;
   label: string;
-  icon: string;
+  icon: IconNames;
 };

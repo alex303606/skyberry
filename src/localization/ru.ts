@@ -18,5 +18,6 @@ export const ruTranslation = {
     weight: 'Вес: {{weight}}  гр.',
     currency: 'сом',
     price: 'Цена: ',
+    ingredients: 'Ингредиенты: ',
   },
 };

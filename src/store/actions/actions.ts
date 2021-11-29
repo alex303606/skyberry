@@ -118,7 +118,7 @@ export const initMenu = () => {
 
 export const initConfig = () => {
   return (dispatch: Dispatch) => {
-    return axios.get<IConfig>('/config.json').then(
+    return axios.get<IConfig>('/config2.json').then(
       ({data}) => {
         dispatch({type: INIT_CONFIG, config: data});
       },

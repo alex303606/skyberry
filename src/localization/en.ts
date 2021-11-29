@@ -18,5 +18,6 @@ export const enTranslation = {
     weight: 'Weight {{weight}}  gr.',
     currency: 'som',
     price: 'Price: ',
+    ingredients: 'Ingredients: ',
   },
 };

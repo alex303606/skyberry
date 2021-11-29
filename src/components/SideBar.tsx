@@ -34,7 +34,7 @@ export const SideBar = React.forwardRef<ScrollView, Props>(
     );
 
     return (
-      <Block flex={2}>
+      <Block flex={2} paddingTop={100}>
         <ScrollView ref={ref} {...props}>
           {categories.map(renderItem)}
         </ScrollView>

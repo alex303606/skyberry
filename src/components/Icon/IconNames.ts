@@ -21,4 +21,6 @@ export enum IconNames {
   top = 'top',
   down = 'down',
   home = 'home',
+  vegetarian = 'vegetarian',
+  spicy = 'spicy',
 }

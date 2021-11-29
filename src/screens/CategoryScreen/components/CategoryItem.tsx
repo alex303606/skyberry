@@ -4,10 +4,10 @@ import {Colors} from '@config';
 import styled from 'styled-components/native';
 import {Block, IconNames, Typography, Dashes, Button} from '@components';
 import type {Category} from '@interfaces';
-import {useCurrentLanguage, useImageUrl} from '@hooks';
+import {useCategoryImageUrl, useCurrentLanguage} from '@hooks';
 import {useTranslation} from 'react-i18next';
 
-const {BoldUppercase55, Polls20} = Typography;
+const {Polls20} = Typography;
 const {height} = Dimensions.get('screen');
 const IMAGE_SIZE = height * 0.85;
 const IMAGE_MARGIN = -IMAGE_SIZE * 0.3;
@@ -19,8 +19,8 @@ type Props = {
 
 export const CategoryItem: React.FC<Props> = ({item, onSelect}) => {
   const {image} = item;
-  const source = useImageUrl(image);
-  const {title, description} = useCurrentLanguage(item);
+  const source = useCategoryImageUrl(image);
+  const {description} = useCurrentLanguage(item);
   const {t} = useTranslation();
   const onSelectHandler = useCallback(() => {
     onSelect(item);
@@ -35,14 +35,6 @@ export const CategoryItem: React.FC<Props> = ({item, onSelect}) => {
       </Background>
       <Block marginRight={40}>
         <Width400>
-          {!!title && (
-            <BoldUppercase55
-              numberOfLines={1}
-              textAlign={'left'}
-              color={Colors.titleColor}>
-              {title}
-            </BoldUppercase55>
-          )}
           {!!description && (
             <Polls20 color={Colors.textColor} marginVertical={20}>
               {description}

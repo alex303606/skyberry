@@ -17,8 +17,7 @@ import {
 } from '@hooks';
 import {useTranslation} from 'react-i18next';
 
-const {ChocolatesUppercase72, BoldCapitalize20, Polls24, RegularUpperCase72} =
-  Typography;
+const {BoldCapitalize20, Polls24, RegularUpperCase72} = Typography;
 
 export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
   route: {
@@ -49,13 +48,11 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
           <PositionGallery photos={dish.images} />
         </Block>
         <Block flex={4} paddingHorizontal={20}>
-          <ScrollView>
-            <ChocolatesUppercase72
-              marginTop={100}
-              color={Colors.titleColor}
-              numberOfLines={1}>
-              {title}
-            </ChocolatesUppercase72>
+          <ScrollView
+            contentContainerStyle={{
+              paddingTop: 100,
+              flexGrow: 1,
+            }}>
             {!!weight && (
               <BoldCapitalize20
                 marginVertical={7}
@@ -65,6 +62,7 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
               </BoldCapitalize20>
             )}
             <BoldCapitalize20 color={Colors.textColor} marginVertical={7}>
+              {t('ingredients')}
               {ingredients}
             </BoldCapitalize20>
             <Polls24

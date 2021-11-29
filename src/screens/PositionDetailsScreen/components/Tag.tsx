@@ -23,7 +23,7 @@ export const Tag: React.FC<Props> = ({tag}) => {
       margin={10}>
       <RegularLowercase20 color={Colors.fillColor}>{label}</RegularLowercase20>
       <IconWrapper marginLeft={20}>
-        <Icon name={IconNames.dish} size={30} color={Colors.fillColor} />
+        <Icon name={IconNames[tag.icon]} size={40} color={Colors.fillColor} />
       </IconWrapper>
     </Wrapper>
   );
