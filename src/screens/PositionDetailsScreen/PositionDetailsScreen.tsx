@@ -50,7 +50,7 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
         <Block flex={4} paddingHorizontal={20}>
           <ScrollView
             contentContainerStyle={{
-              paddingTop: 100,
+              paddingTop: 160,
               flexGrow: 1,
             }}>
             {!!weight && (
@@ -61,10 +61,12 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
                 {t('weight', {weight})}
               </BoldCapitalize20>
             )}
-            <BoldCapitalize20 color={Colors.textColor} marginVertical={7}>
-              {t('ingredients')}
-              {ingredients}
-            </BoldCapitalize20>
+            {!!ingredients && (
+              <BoldCapitalize20 color={Colors.textColor} marginVertical={7}>
+                {t('ingredients')}
+                {ingredients}
+              </BoldCapitalize20>
+            )}
             <Polls24
               color={Colors.textColor}
               marginVertical={20}
