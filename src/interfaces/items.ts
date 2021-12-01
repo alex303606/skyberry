@@ -27,6 +27,7 @@ export interface Category {
   childCount?: number;
   dishes?: Dish[];
   avaliable: boolean;
+  visible: string | null;
 }
 
 export interface MainCategory extends Category {

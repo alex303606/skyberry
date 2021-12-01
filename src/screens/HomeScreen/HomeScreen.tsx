@@ -20,7 +20,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = () => {
   );
 
   const {socialNetworks, app, options, languages} = useConfig();
-  const {mainCategories} = useMainCategories();
+  const mainCategories = useMainCategories();
 
   return (
     <Background image={app.backgroundImage}>
