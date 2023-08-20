@@ -1,4 +1,4 @@
-const DefaultImage = require('@assets/images/default-image.png');
+const DefaultImage = require('@assets/images/logo.png');
 export const useImageUrl = (url: string | null | undefined) => {
   if (!url) {
     return DefaultImage;
