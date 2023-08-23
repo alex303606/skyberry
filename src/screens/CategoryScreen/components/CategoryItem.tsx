@@ -36,7 +36,7 @@ export const CategoryItem: React.FC<Props> = ({item, onSelect}) => {
       <Block marginRight={40}>
         <Width400>
           {!!description && (
-            <Polls20 color={Colors.textColor} marginVertical={20}>
+            <Polls20 color={Colors.white} marginVertical={20}>
               {description}
             </Polls20>
           )}
