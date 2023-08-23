@@ -21,9 +21,9 @@ export const AccompanyingCategory: React.FC<Props> = ({positions, title}) => {
     <Block marginVertical={50}>
       <Row alignItems={'center'}>
         <Block marginRight={20}>
-          <Icon name={IconNames.cherry} size={30} color={Colors.fillColor} />
+          <Icon name={IconNames.cherry} size={30} color={Colors.white} />
         </Block>
-        <BoldUppercase32 color={Colors.fillColor} numberOfLines={1}>
+        <BoldUppercase32 color={Colors.white} numberOfLines={1}>
           {title}
         </BoldUppercase32>
       </Row>

@@ -19,7 +19,7 @@ export const AccompanyingPosition: React.FC<Props> = ({position}) => {
   return (
     <Block alignItems={'center'} marginHorizontal={20}>
       <StyledImage source={image} />
-      <StyledChocolatesRegular20 color={Colors.secondaryColor}>
+      <StyledChocolatesRegular20 color={Colors.white}>
         {title}
       </StyledChocolatesRegular20>
     </Block>

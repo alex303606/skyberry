@@ -47,7 +47,7 @@ export const NavItem: React.FC<Props> = ({
         <Block marginLeft={30}>
           <RegularUpperCase18
             numberOfLines={1}
-            color={active ? Colors.accentColor : Colors.secondaryColor}>
+            color={active ? Colors.secondaryColor : Colors.white}>
             {title}
             {` (${childCount})`}
           </RegularUpperCase18>

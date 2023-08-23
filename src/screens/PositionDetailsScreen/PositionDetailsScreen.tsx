@@ -56,19 +56,19 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
             {!!weight && (
               <BoldCapitalize20
                 marginVertical={7}
-                color={Colors.textColor}
+                color={Colors.white}
                 numberOfLines={1}>
                 {t('weight', {weight})}
               </BoldCapitalize20>
             )}
             {!!ingredients && (
-              <BoldCapitalize20 color={Colors.textColor} marginVertical={7}>
+              <BoldCapitalize20 color={Colors.white} marginVertical={7}>
                 {t('ingredients')}
                 {ingredients}
               </BoldCapitalize20>
             )}
             <Polls24
-              color={Colors.textColor}
+              color={Colors.white}
               marginVertical={20}
               paddingRight={'20%'}>
               {description}
@@ -77,7 +77,7 @@ export const PositionDetailsScreen: React.FC<PositionsDetailsScreenProps> = ({
             <Row marginVertical={20}>
               <RegularUpperCase72
                 marginRight={20}
-                color={Colors.secondaryColor}
+                color={Colors.white}
                 numberOfLines={1}>
                 {t('price')}
                 {price} {t('currency')}
