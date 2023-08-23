@@ -23,4 +23,5 @@ export enum IconNames {
   home = 'home',
   vegetarian = 'vegetarian',
   spicy = 'spicy',
+  pizza = 'pizza',
 }

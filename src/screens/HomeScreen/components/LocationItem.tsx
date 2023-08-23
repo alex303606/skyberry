@@ -23,9 +23,9 @@ export const LocationItem: React.FC<Props> = ({location, onPress}) => {
     <Wrapper>
       <StyledPressable onPress={onPressHandler}>
         <IconWrapper>
-          <Icon name={icon} color={Colors.accentColor} size={30} />
+          <Icon name={icon} color={Colors.white} size={30} />
         </IconWrapper>
-        <RegularCapitalize22 numberOfLines={1} color={Colors.accentColor}>
+        <RegularCapitalize22 numberOfLines={1} color={Colors.white}>
           {title}
         </RegularCapitalize22>
       </StyledPressable>

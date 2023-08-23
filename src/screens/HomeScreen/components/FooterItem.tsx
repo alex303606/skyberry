@@ -16,18 +16,18 @@ export const FooterItem: React.FC<Props> = ({option}) => {
   return (
     <Container alignItems={'center'}>
       <Block marginBottom={5}>
-        <Icon color={Colors.accentColor} size={30} name={icon} />
+        <Icon color={Colors.white} size={30} name={icon} />
       </Block>
       <Regular14
         numberOfLines={1}
         marginTop={5}
-        style={{color: Colors.secondaryColor}}>
-        {t(`footer.${title}`, {value})}
+        style={{color: Colors.white}}>
+        {value}
       </Regular14>
     </Container>
   );
 };
 
 export const Container = styled(Block)({
-  width: '30%',
+  width: '100%',
 });

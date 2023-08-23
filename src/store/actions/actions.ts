@@ -80,7 +80,7 @@ export const initMenu = () => {
           data: {categories: enCat},
         },
       ] = await Promise.all([getRuCategories, getEnCategories]);
-
+      console.log(ruCat);
       const enCatData = enCat.reduce(reducer, {} as Data);
       const ruCatData = ruCat.reduce(reducer, {} as Data);
 
@@ -120,6 +120,7 @@ export const initConfig = () => {
   return (dispatch: Dispatch) => {
     return axios.get<IConfig>('/config3.json').then(
       ({data}) => {
+        console.log(data);
         dispatch({type: INIT_CONFIG, config: data});
       },
       error => {
