@@ -5,7 +5,7 @@ export const useImageUrl = (url: string | null | undefined) => {
   }
   const size = '.800x600.';
   return {
-    uri: `https://menu.skyberry.kg/files/products/${url.replace('.', size)}`,
+    uri: `https://menu2.skyberry.kg/files/products/${url.replace('.', size)}`,
   };
 };
 
@@ -14,6 +14,6 @@ export const useCategoryImageUrl = (url: string | null | undefined) => {
     return DefaultImage;
   }
   return {
-    uri: `https://menu.skyberry.kg/files/categories/${url}`,
+    uri: `https://menu2.skyberry.kg/files/categories/${url}`,
   };
 };
